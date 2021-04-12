@@ -19,14 +19,14 @@ class _ChartApp extends StatelessWidget {
 
 class _MyHomePage extends StatefulWidget {
   // ignore: prefer_const_constructors_in_immutables
-  _MyHomePage({Key key}) : super(key: key);
+  _MyHomePage({Key? key}) : super(key: key);
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<_MyHomePage> {
-  List<_SalesData> data;
+  late List<_SalesData> data;
   int count = 11;
   @override
   void initState() {
@@ -46,7 +46,7 @@ class _MyHomePageState extends State<_MyHomePage> {
   }
 
   // Initialized a global variable for ChartSeriesController class
-  ChartSeriesController _chartSeriesController;
+  ChartSeriesController? _chartSeriesController;
 
   @override
   Widget build(BuildContext context) {
@@ -93,7 +93,7 @@ class _MyHomePageState extends State<_MyHomePage> {
                   child: ButtonTheme(
                       minWidth: 40.0,
                       height: 30.0,
-                      child: RaisedButton(
+                      child: ElevatedButton(
                         onPressed: () {
                           _chartSeriesController?.animate();
                         },
@@ -105,7 +105,7 @@ class _MyHomePageState extends State<_MyHomePage> {
                   child: ButtonTheme(
                       minWidth: 40.0,
                       height: 30.0,
-                      child: RaisedButton(
+                      child: ElevatedButton(
                         onPressed: () {
                           addChartData();
                         },
@@ -124,13 +124,13 @@ class _MyHomePageState extends State<_MyHomePage> {
     });
   }
 
-  num getRandomInt(num min, num max) {
+  double getRandomInt(double min, double max) {
     final Random random = Random();
-    return min + random.nextInt(max - min);
+    return min + random.nextInt((max - min).toInt());
   }
 
   List<_SalesData> getChartData() {
-    data.add(_SalesData(count, getRandomInt(20, 50)));
+    data.add(_SalesData(count.floor(), getRandomInt(20, 50)));
     count = count + 1;
     return data;
   }
@@ -139,6 +139,6 @@ class _MyHomePageState extends State<_MyHomePage> {
 class _SalesData {
   _SalesData(this.year, this.sales);
 
-  final num year;
-  final int sales;
+  final int year;
+  final double sales;
 }
