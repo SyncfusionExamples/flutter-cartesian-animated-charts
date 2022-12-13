@@ -2,8 +2,6 @@
 
 A quick-start example to help you add the Syncfusion Flutter Charts package to a Flutter app. You will learn how to add a Cartesian chart to a Flutter project. Our Flutter Cartesian chart provides animation support by default. The animationDuration property in the chart series is used to control the speed of the animation and its default value is 1500. To render the chart without animation, you can specify the animationDuration as 0.
 
-Documentation: https://help.syncfusion.com/flutter/cartesian-charts/methods#methods-in-tooltipbehavior
-
 ## Requirements to run the demo
 * [VS Code](https://code.visualstudio.com/download)
 * [Flutter SDK v2.0.0+](https://flutter.dev/docs/development/tools/sdk/overview)
