@@ -60,7 +60,7 @@ class _MyHomePageState extends State<_MyHomePage> {
             height: 50,
           ),
           Container(
-              height: 550,
+              height: 450,
               child: SfCartesianChart(
                   backgroundColor: Colors.white,
                   plotAreaBorderWidth: 0,
@@ -72,7 +72,7 @@ class _MyHomePageState extends State<_MyHomePage> {
                       minimum: 20,
                       maximum: 50,
                       interval: 5),
-                  series: <ChartSeries<_SalesData, num>>[
+                  series: <LineSeries<_SalesData, num>>[
                     LineSeries<_SalesData, num>(
                       // Animation duration for this line series set to 2000
                       animationDuration: 2000,
@@ -98,7 +98,7 @@ class _MyHomePageState extends State<_MyHomePage> {
                           _chartSeriesController?.animate();
                         },
                         child: Text('Animate line series',
-                            textScaleFactor: 1,
+                            textScaler: TextScaler.linear(1),
                             style: TextStyle(color: Colors.white)),
                       ))),
               Container(
@@ -110,7 +110,7 @@ class _MyHomePageState extends State<_MyHomePage> {
                           addChartData();
                         },
                         child: Text('Add data point',
-                            textScaleFactor: 1,
+                            textScaler: TextScaler.linear(1),
                             style: TextStyle(color: Colors.white)),
                       ))),
             ],
